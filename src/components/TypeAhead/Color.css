@@ -1,8 +1,27 @@
-/* .wrapper{
-    margin: 0;
+.wrapper {
+  margin: 0;
   position: absolute;
   top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-
-} */
+  left: 40%;
+  -ms-transform: translate(-50%, -45%);
+  transform: translate(-);
+}
+
+.resultList {
+  border: 1px solid grey;
+  width: 300px;
+  text-align: center;
+}
+.inputBox {
+  width: 294px;
+}
+.optionsList {
+  background-color: white;
+  margin: 2px;
+  font-family: monospace;
+}
+.optionsList:hover {
+  background-color: #f2f2f2;
+  margin: 2px;
+  font-family: monospace;
+}
