@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import TypeAhead from "./components/TypeAhead";
+import Particles from "react-particles-js";
 
 const colorsList = [
   "AliceBlue",
@@ -156,6 +157,19 @@ const colorsList = [
 ReactDOM.render(
   <React.StrictMode>
     <TypeAhead list={colorsList} />
+    <Particles
+      params={{
+        particles: {
+          shape: {
+            type: "images",
+            image: [
+              { src: "path/to/first/image.svg", height: 20, width: 20 },
+              { src: "path/to/second/image.jpg", height: 20, width: 20 },
+            ],
+          },
+        },
+      }}
+    />
   </React.StrictMode>,
   document.getElementById("root")
 );
