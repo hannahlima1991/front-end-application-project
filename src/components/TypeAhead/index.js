@@ -6,10 +6,10 @@ function TypeAhead(props) {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [boldItem, setBoldItem] = useState("");
 
   useEffect(() => {
     let newTerm = searchTerm.split(" ").join("");
+    let num = newTerm.length;
     if (newTerm.length > 0) {
       const results = list.filter((color) =>
         color.toLowerCase().startsWith(newTerm)
@@ -43,7 +43,8 @@ function TypeAhead(props) {
               className="optionsList"
               onClick={() => setSearchTerm(colorInput)}
             >
-              {colorInput}
+              <b>{searchTerm}</b>
+              {colorInput.substring(searchTerm.length, colorInput.length)}
             </p>
           ))}
         </div>
