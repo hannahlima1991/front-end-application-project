@@ -1,4 +1,9 @@
 .wrapper {
+  height: 100vh;
+  width: auto;
+  position: relative;
+}
+.userInput {
   margin: 0;
   position: absolute;
   top: 50%;
@@ -6,11 +11,16 @@
   -ms-transform: translate(-50%, -45%);
   transform: translate(-);
 }
-
 .resultList {
   border: 1px solid grey;
   width: 300px;
   text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 53%;
+  left: 40%;
+  -ms-transform: translate(-50%, -45%);
+  transform: translate(-);
 }
 .inputBox {
   width: 294px;
