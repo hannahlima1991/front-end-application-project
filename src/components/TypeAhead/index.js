@@ -11,7 +11,8 @@ function TypeAhead(props) {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [listOpen, setListOpen] = useState(true);
+  const [listOpen, setListOpen] = useState(false);
+  const [showColor, setShowColor] = useState(false);
 
   useEffect(() => {
     let newTerm = searchTerm.split(" ").join("");
@@ -30,8 +31,13 @@ function TypeAhead(props) {
   console.log(searchResults);
 
   return (
-    <div className="wrapper" onClick={() => setListOpen(false)}>
-      <BackGround colorName={"maroon"} />
+    <div
+      className="wrapper"
+      onClick={() => setListOpen(false)}
+      style={{ background: searchTerm === "" ? "#CCCCCC" : "#CCCCCC" }}
+    >
+      {showColor && <BackGround colorName={searchTerm} />}
+
       <div className="userInput">
         <input
           placeholder="Enter a color"
@@ -56,12 +62,14 @@ function TypeAhead(props) {
               onClick={() => {
                 setSearchTerm(colorInput);
                 setListOpen(false);
+                setShowColor(true);
                 onAction();
               }}
               onKeyDown={(event) => {
                 if (event.keyCode === 13) {
                   setListOpen(false);
                   setSearchTerm(colorInput);
+                  setShowColor(true);
                   onAction();
                 }
                 if (event.keyCode === 27) {
@@ -81,10 +89,3 @@ function TypeAhead(props) {
 }
 
 export default TypeAhead;
-
-// onKeyDown = (event) => {
-//   console.log(event.charCode);
-//   if (event.charCode === 13) {
-//     console.log("Hey");
-//   }
-// };
