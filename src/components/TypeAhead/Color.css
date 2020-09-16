@@ -1,6 +1,6 @@
 .wrapper {
   height: 100vh;
-  width: auto;
+  width: 100%;
   position: relative;
 }
 .userInput {
@@ -27,11 +27,11 @@
 }
 .optionsList {
   background-color: white;
-  margin: 2px;
+  margin: 1px;
   font-family: monospace;
 }
 .optionsList:hover {
-  background-color: #f2f2f2;
-  margin: 2px;
+  background-color: #dddddd;
+  margin: 1px;
   font-family: monospace;
 }

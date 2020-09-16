@@ -53,11 +53,12 @@ var colours = {
   gold: "#ffd700",
   goldenrod: "#daa520",
   gray: "#808080",
+  grey: "#808080",
   green: "#008000",
   greenyellow: "#adff2f",
   honeydew: "#f0fff0",
   hotpink: "#ff69b4",
-  "indianred ": "#cd5c5c",
+  indianred: "#cd5c5c",
   indigo: "#4b0082",
   ivory: "#fffff0",
   khaki: "#f0e68c",
@@ -69,6 +70,7 @@ var colours = {
   lightcoral: "#f08080",
   lightcyan: "#e0ffff",
   lightgoldenrodyellow: "#fafad2",
+  lightgray: "#d3d3d3",
   lightgrey: "#d3d3d3",
   lightgreen: "#90ee90",
   lightpink: "#ffb6c1",
@@ -76,6 +78,7 @@ var colours = {
   lightseagreen: "#20b2aa",
   lightskyblue: "#87cefa",
   lightslategray: "#778899",
+  lightslategrey: "#778899",
   lightsteelblue: "#b0c4de",
   lightyellow: "#ffffe0",
   lime: "#00ff00",
@@ -129,6 +132,7 @@ var colours = {
   skyblue: "#87ceeb",
   slateblue: "#6a5acd",
   slategray: "#708090",
+  slategrey: "#708090",
   snow: "#fffafa",
   springgreen: "#00ff7f",
   steelblue: "#4682b4",
@@ -146,41 +150,55 @@ var colours = {
 };
 
 function BackGround(props) {
-  const { colorName } = props;
+  const colorName = props.colorName.toLowerCase();
   const hexColor = colours[colorName];
+  console.log(hexColor);
+  //A5A8AC
   return (
-    <Particles
-      id="simple"
-      width="auto"
-      height="100vh"
-      style={{
-        backgroundColor: "white",
-      }}
-      params={{
-        particles: {
-          number: {
-            value: 50,
-          },
-          size: {
-            value: 3,
-          },
-          color: {
-            value: hexColor,
-          },
-          line_linked: {
-            color: hexColor,
-          },
-        },
-        interactivity: {
-          events: {
-            onhover: {
-              enable: true,
-              mode: "repulse",
+    <div>
+      {hexColor && (
+        <Particles
+          id="simple"
+          width="auto"
+          height="100vh"
+          style={{
+            backgroundColor: "#CCCCCC",
+          }}
+          params={{
+            particles: {
+              number: {
+                value: 150,
+              },
+              size: {
+                value: 3,
+              },
+              color: {
+                value: hexColor,
+              },
+              opacity: {
+                value: 0.5,
+              },
+              line_linked: {
+                color: hexColor,
+                width: 3,
+                opacity: 0.4,
+              },
+              move: {
+                speed: 7,
+              },
             },
-          },
-        },
-      }}
-    />
+            interactivity: {
+              events: {
+                onhover: {
+                  enable: true,
+                  mode: "repulse",
+                },
+              },
+            },
+          }}
+        />
+      )}
+    </div>
   );
 }
 
