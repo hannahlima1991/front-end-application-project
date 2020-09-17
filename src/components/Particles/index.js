@@ -1,4 +1,5 @@
 import React from "react";
+import "./Background.css";
 import { Particles } from "@blackbox-vision/react-particles";
 
 var colours = {
@@ -153,21 +154,21 @@ function BackGround(props) {
   const colorName = props.colorName.toLowerCase();
   const hexColor = colours[colorName];
   console.log(hexColor);
-  //A5A8AC
+
   return (
-    <div>
+    <div className="particleWrap">
       {hexColor && (
         <Particles
           id="simple"
           width="auto"
           height="100vh"
           style={{
-            backgroundColor: "#CCCCCC",
+            backgroundColor: "#383838",
           }}
           params={{
             particles: {
               number: {
-                value: 150,
+                value: 200,
               },
               size: {
                 value: 3,
@@ -180,7 +181,7 @@ function BackGround(props) {
               },
               line_linked: {
                 color: hexColor,
-                width: 3,
+                width: 2,
                 opacity: 0.4,
               },
               move: {

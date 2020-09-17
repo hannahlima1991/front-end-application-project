@@ -1,37 +1,46 @@
 .wrapper {
   height: 100vh;
   width: 100%;
-  position: relative;
+  z-index: 10;
 }
 .userInput {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 40%;
-  -ms-transform: translate(-50%, -45%);
-  transform: translate(-);
+  margin: 0 auto;
+  width: 300px;
+}
+.inputBox {
+  margin-top: 100px;
+  width: 294px;
+  border-radius: 5px;
+  font-size: large;
 }
 .resultList {
   border: 1px solid grey;
   width: 300px;
   text-align: center;
   margin: 0;
-  position: absolute;
-  top: 53%;
-  left: 40%;
-  -ms-transform: translate(-50%, -45%);
-  transform: translate(-);
-}
-.inputBox {
-  width: 294px;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow: scroll;
 }
 .optionsList {
   background-color: white;
   margin: 1px;
   font-family: monospace;
+  z-index: -1;
+  box-shadow: 0 4px 20px 0 #9e9e9e, 0 7px 7px -1px black;
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  cursor: pointer;
 }
-.optionsList:hover {
-  background-color: #dddddd;
+.optionsList:hover,
+.optionsList:focus {
+  background-color: #c6c6c6;
   margin: 1px;
   font-family: monospace;
+  cursor: pointer;
+  color: white;
+}
+.particleWrap {
+  background-color: #383838;
 }

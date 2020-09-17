@@ -26,17 +26,22 @@ function TypeAhead(props) {
     } else {
       setSearchResults([]);
     }
+    // if (searchResults === []) {
+    //   setListOpen(false);
+    // } else {
+    //
+    // }
   }, [searchTerm]);
 
-  console.log(searchResults);
+  console.log(listOpen ? "true" : "false", searchResults);
 
   return (
-    <div
-      className="wrapper"
-      onClick={() => setListOpen(false)}
-      style={{ background: searchTerm === "" ? "#CCCCCC" : "#CCCCCC" }}
-    >
-      {showColor && <BackGround colorName={searchTerm} />}
+    <div className="wrapper" onClick={() => setListOpen(false)}>
+      {showColor ? (
+        <BackGround colorName={searchTerm} />
+      ) : (
+        <div className="particleWrap"></div>
+      )}
 
       <div className="userInput">
         <input
@@ -50,40 +55,38 @@ function TypeAhead(props) {
             setListOpen(true);
           }}
         />
-      </div>
-
-      {listOpen && (
-        <div className="resultList">
-          {searchResults.map((colorInput, i) => (
-            <p
-              key={i}
-              tabIndex="0"
-              className="optionsList"
-              onClick={() => {
-                setSearchTerm(colorInput);
-                setListOpen(false);
-                setShowColor(true);
-                onAction();
-              }}
-              onKeyDown={(event) => {
-                if (event.keyCode === 13) {
-                  setListOpen(false);
+        {listOpen && (
+          <div className="resultList">
+            {searchResults.map((colorInput, i) => (
+              <p
+                key={i}
+                tabIndex="0"
+                className="optionsList"
+                onClick={() => {
                   setSearchTerm(colorInput);
+                  setListOpen(false);
                   setShowColor(true);
                   onAction();
-                }
-                if (event.keyCode === 27) {
-                  setListOpen(false);
-                  console.log(listOpen);
-                }
-              }}
-            >
-              <b>{searchTerm}</b>
-              {colorInput.substring(searchTerm.length, colorInput.length)}
-            </p>
-          ))}
-        </div>
-      )}
+                }}
+                onKeyDown={(event) => {
+                  if (event.keyCode === 13) {
+                    setListOpen(false);
+                    setSearchTerm(colorInput);
+                    setShowColor(true);
+                    onAction();
+                  }
+                  if (event.keyCode === 27) {
+                    setListOpen(false);
+                  }
+                }}
+              >
+                <b>{searchTerm}</b>
+                {colorInput.substring(searchTerm.length, colorInput.length)}
+              </p>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
